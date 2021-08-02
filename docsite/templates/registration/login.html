@@ -1,0 +1,41 @@
+{% load static %}
+<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'css\loginstyle.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> {% load crispy_forms_tags %}
+</head>
+
+<body>
+
+    <section>
+        <div class="imgBox">
+            <img src="{% static 'images\medic.png' %}">
+        </div>
+        <div class="contentBox">
+            <div class="formBox">
+                <h2 style="padding: 10px;">
+                    LOGIN
+                </h2>
+                <form method="post" class="form-group" style="margin : 5em">
+                    {% csrf_token %} {{form|crispy}}
+                    <br>
+                    <div style="text-align: center; color: aliceblue;"><button type="submit" class="btn btn-primary">&nbspLogin&nbsp</button></div><br>
+
+                    <div style="text-align: center; color: aliceblue;"><a class="btn btn-primary" href="/" role="button">Home</a>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+</html>

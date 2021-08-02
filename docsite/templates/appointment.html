@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointments</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    {% load crispy_forms_tags %}
+</head>
+<style>
+body  {
+  background-image: url("");
+  background-color: #08545a;
+  font-family: 'Didact Gothic';
+}
+</style>
+<body>
+    <h1 style="color:white; margin:1em" >Set Up An Appointment</h1>
+    <div style="margin:1em; width:75%" >
+<form action="/appointment" method="get" >
+    {% csrf_token %}
+    {{form|crispy}}
+    <select class="form-select"  aria-label="Default select example" style="margin:1em" id="query" name="query">
+        <option selected>Select Date</option>
+        {% for i in dates %}
+        <option value="{{ i.date|date:'Y-m-d' }}">{{ i.date }}</option>
+
+        {% endfor %}
+    </select><br>
+    <button class="btn btn-primary" type="submit" style="margin:1em">Select Date</button>
+</form></div>
+<div style="margin:1em; width:75%" >
+    <form  method="post" action="/appointment">
+    {% csrf_token %}
+    {{form|crispy}}
+    <div class="input-group mb-3" style="margin:1em">
+        <div class="input-group-text" id="inputGroup-sizing-default">Name</div>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="name" name="name">
+    </div>
+    <div class="input-group mb-3" style="margin:1em">
+        <div class="input-group-text" id="inputGroup-sizing">Email</div>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="mail" name="mail">
+    </div>
+     <div class="input-group mb-3" style="margin:1em">
+        <div class="input-group-text" id="inputGroup">Date</div>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="date" name="date" value="{{ slots }}">
+    </div>
+    <select class="form-select" aria-label="Default select example" style="margin:1em" id="time" name="time">
+        <option selected >Slot Number</option>
+        {% if slots.Slot1 == None %}
+        <option  value="Slot1">Slot1</option>
+        {% endif %}
+        {% if slots.Slot2 == None %}
+        <option  value="Slot2">Slot2</option>
+        {% endif %}
+        {% if slots.Slot3 == None %}
+        <option value="Slot3">Slot3</option>
+        {% endif %}
+        {% if slots.Slot4 == None %}
+        <option value="Slot4">Slot4</option>
+        {% endif %}
+        {% if slots.Slot5 == None %}
+        <option value="Slot5">Slot5</option>
+        {% endif %}
+        {% if slots.Slot6 == None %}
+        <option value="Slot6">Slot6</option>
+        {% endif %}
+        {% if slots.Slot7 == None %}
+        <option value="Slot7">Slot7</option>
+        {% endif %}
+        {% if slots.Slot8 == None %}
+        <option value="Slot8">Slot8</option>
+        {% endif %}
+        {% if slots.Slot9 == None %}
+        <option value="Slot9">Slot9</option>
+        {% endif %}
+        {% if slots.Slot10 == None %}
+        <option value="Slot10">Slot10</option>
+        {% endif %}
+    </select>
+    <button class="btn btn-primary" type="submit" style="margin:1em">Book Appointment</button>
+    </form></div>
+<a class="btn btn-primary" href="/" role="button" style="margin:5em">Home</a>
+</body>
+</html>

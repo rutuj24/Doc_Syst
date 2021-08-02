@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>New Patient Form</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/styles.css'%}" type="text/css">
+    {% load crispy_forms_tags %}
+    </head>
+<style>
+body  {
+  background-image: url("");
+  background-color: #08545a;
+  font-family: 'Didact Gothic';
+}
+</style>
+    <body>
+
+        <div class="container">
+
+            <h1 style="color:white; margin-bottom:1em">Fill the form to enter the patient details</h1>
+
+            <div class="app"><div>
+                <h3 style="color:white; margin:1em">Enter details</h3>
+                <form id="form" method="post" action="/formB" style="margin:2.5em">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    {% if patient.error_message %}
+                <div class="alert alert-danger" role="alert">
+                    {{ patient.error_message }}
+                </div>
+                {% endif %}
+                <label style="color:white;" for="name">Name:</label>
+                <input type="text" id="name" name="name" size="width:50%; radius:1em" value="{{patient.name}}"><br><br>
+                <label style="color:white;" for="email">Email id:</label>
+                    <input type="text" id="email" name="email" size="width:50%; radius:1em" value="{{patient.email}}"><br><br>
+                    <label style="color:white;" for="pno">Phone no.:</label>
+                <input type="text" id="pno" name="pno" size="width:50%; radius:1em" value="{{patient.phone}}"><br><br>
+                    <label for="symptoms" style="color:white;">Symptoms:</label><br>
+                    <textarea id="symptoms" placeholder="Enter the symptoms" rows="6" name="symptoms" size="width:50%; radius:1em">{{patient.symptom}}</textarea><br>
+                    <div class="input-single">
+                    <label for="note-textarea" style="color:white;">Prescription:</label><br>
+                    <textarea id="note-textarea" placeholder="Enter the prescription by voice or typing" rows="6" name="prescription" size="width:50%; radius:1em">{{patient.prescriptions}}</textarea>
+                </div>
+
+                    <button class="btn btn-primary" type="submit">Submit</button>
+
+                    </form></div>
+        <a class="btn btn-primary" href="/" role="button" style="margin:2em">Home</a>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{% static '/js/annyang.min.js' %}"></script>
+                <script>
+        if (annyang) {
+            // Let's define our first command. First the text we expect, and then the function it should call
+            var commands = {
+                'write name *tag': function(variable) {
+                    let name = document.getElementById("name");
+                    name.value = variable;
+                },
+
+                'write email *tag': function(variable) {
+                    let mail = document.getElementById("email");
+                    mail.value = variable;
+                },
+
+                'write phone number *tag': function(variable) {
+                    let pno = document.getElementById("pno");
+                    pno.value = variable;
+                },
+
+                'write symptoms *tag': function(variable) {
+                    let symp = document.getElementById("symptoms");
+                    symp.value += ", ";
+                    symp.value += variable;
+                },
+
+                'write prescription *tag': function(variable) {
+                    let pres = document.getElementById("note-textarea");
+                    pres.value += ", ";
+                    pres.value += variable;
+                },
+            };
+
+            // Add our commands to annyang
+            annyang.addCommands(commands);
+
+            // Start listening. You can call this here, or attach this call to an event, button, etc.
+            annyang.start();
+        }
+    </script>
+            </div>
+        </div>
+    </body>

@@ -1,0 +1,87 @@
+{% load static %}
+<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule</title>
+    <title>{{ scheduler.date }}</title>
+    <link rel="stylesheet" href="{% static 'css\sche.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<style>
+body  {
+  background-image: url("");
+  background-color: #08545a;
+  font-family: 'Didact Gothic';
+}
+</style>
+<body>
+    <h1 style="margin:1em; color:white">SCHEDULE</h1>
+    <h3 style="margin-left:2.5em; color:white">{{ scheduler.date }}</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="10%">#</th>
+                <th width="30%">Slot</th>
+                <th width="50%">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>1</th>
+                <td>Slot1</td>
+                <td>{{ scheduler.Slot1 }}</td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td>Slot2</td>
+                <td>{{ scheduler.Slot2 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Slot3</td>
+                <td>{{ scheduler.Slot3 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>Slot4</td>
+                <td>{{ scheduler.Slot4 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>Slot5</td>
+                <td>{{ scheduler.Slot5 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>Slot6</td>
+                <td>{{ scheduler.Slot6 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>Slot7</td>
+                <td>{{ scheduler.Slot7 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>Slot8</td>
+                <td>{{ scheduler.Slot8 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td>Slot9</td>
+                <td>{{ scheduler.Slot9 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">10</th>
+                <td>Slot10</td>
+                <td>{{ scheduler.Slot10 }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <a style="position: absolute; right: 5%; top: 5%;" class="btn btn-primary" href="/" role="button">Home</a>
+</body>
+
+</html>
