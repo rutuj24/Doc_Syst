@@ -8,4 +8,9 @@ Doctor can also check their schedule(only visible to doctors and staff)<br><br>
 
 Whole appointment summary is filled in a form(voice assisted using anyang library)<br>
 Whole summary is sent to the patient automaticaly after the session is over<br>
-An entry of the same is also stored in a database accessible by the doctors and staff
+An entry of the same is also stored in a database accessible by the doctors and staff<br><br>
+
+TO DO:<br>
+Email verification for users <br>
+Sendin session summary in pdf format <br>
+Better UI
