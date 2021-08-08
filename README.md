@@ -1,6 +1,6 @@
 # Doc_Syst
 
-Website for assisting a doctor with all of the work related to the clinic<br><br>
+Website for assisting a doctor with all of the work related to the clinic using django<br><br>
 
 Paitients can set up appointments (select date and time slot)<br>
 An email is sent to the patient regarding the same<br>
